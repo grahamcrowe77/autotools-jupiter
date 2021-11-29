@@ -1,4 +1,4 @@
 all clean jupiter:
-	cd src $$ $(MAKE) $@
+	cd src && $(MAKE) $@
 
 .PHONY: all clean
