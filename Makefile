@@ -6,12 +6,12 @@ distdir = $(tarname)-$(version)
 prefix      = /usr/local
 exec_prefix = $(prefix)
 bindir      = $(exec_prefix_prefix)/bin
-export prefix
-export exec_prefix
-export bindir
 
-all check clean install jupiter uninstall:
-	cd src && $(MAKE) $@
+#export prefix
+#export exec_prefix
+#export bindir
+
+all jupiter: src/jupiter
 
 dist: $(distdir).tar.gz
 
@@ -43,5 +43,7 @@ distcheck: $(distdir).tar.gz
 FORCE:
 	-rm $(distdir).tar.gz > /dev/null 2>&1
 	rm -rf $(distdir)
+
+include src/Makefile
 
 .PHONY: FORCE all check clean dist distcheck install
