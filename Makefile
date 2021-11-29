@@ -6,7 +6,7 @@ distdir = $(tarname)-$(version)
 prefix=/usr/local
 export prefix
 
-all check clean install jupiter:
+all check clean install jupiter uninstall:
 	cd src && $(MAKE) $@
 
 dist: $(distdir).tar.gz
