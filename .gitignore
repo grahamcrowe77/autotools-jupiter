@@ -1,2 +1,6 @@
 src/jupiter
 jupiter-*.tar.gz
+autom4te.cache/
+configure
+config.log
+config.status
