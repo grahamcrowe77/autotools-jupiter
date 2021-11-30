@@ -11,7 +11,12 @@ prefix =@prefix@
 exec_prefix = @exec_prefix@
 bindir = @bindir@
 
-all jupiter: src/jupiter
+# VPATH-specific substitution variables
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+all clean check install uninstall jupiter:
+	cd src && $(MAKE) $@
 
 dist: $(distdir).tar.gz
 
@@ -21,11 +26,11 @@ $(distdir).tar.gz: $(distdir)
 
 $(distdir): FORCE
 	mkdir -p $(distdir)/src
-	cp configure.ac $(distdir)
-	cp configure $(distdir)
-	cp Makefile.in $(distdir)
-	cp src/Makefile.in $(distdir)/src
-	cp src/main.c $(distdir)/src
+	cp $(srcdir)/configure.ac $(distdir)
+	cp $(srcdir)/configure $(distdir)
+	cp $(srcdir)/Makefile.in $(distdir)
+	cp $(srcdir)/src/Makefile.in $(distdir)/src
+	cp $(srcdir)/src/main.c $(distdir)/src
 
 distcheck: $(distdir).tar.gz
 	gzip -cd $(distdir).tar.gz | tar xvf -
@@ -47,12 +52,10 @@ FORCE:
 	-rm $(distdir).tar.gz > /dev/null 2>&1
 	rm -rf $(distdir)
 
-Makefile: Makefile.in config.status
+Makefile: $(srcdir)/Makefile.in config.status
 	./config.status $@
 
-config.status: configure
+config.status: $(srcdir)/configure
 	./config.status --recheck
 
-include src/Makefile
-
-.PHONY: FORCE all check clean dist distcheck install
+.PHONY: FORCE all check clean dist distcheck install uninstall
