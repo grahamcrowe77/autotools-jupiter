@@ -15,7 +15,8 @@ AC_CHECK_HEADERS([stdio.h stdlib.h])
 
 # Checks for command line options
 AC_ARG_ENABLE([async-exec],
-    [  --disable-async-exec    disable async execution feature],
+    [AS_HELP_STRING([--disable-async-exec],
+        [disable async execution feature @<:@default: no@:>@])],
     [async_exec=${enableval}], [async_exec=yes])
 
 if test "x${async_exec}" = xyes; then
