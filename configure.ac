@@ -18,28 +18,29 @@ AC_ARG_ENABLE([async-exec],
     [  --disable-async-exec    disable async execution feature],
     [async_exec=${enableval}], [async_exec=yes])
 
-# Checks for libraries.
-have_pthreads=no
-AC_SEARCH_LIBS([pthread_create],[pthread],[have_pthreads=yes])
+if test "x${async_exec}" = xyes; then
+    have_pthreads=no
+    AC_SEARCH_LIBS([pthread_create],[pthread],[have_pthreads=yes])
 
-if test "x${have_pthreads}" = xyes; then
+    if test "x${have_pthreads}" = xyes; then
 	AC_CHECK_HEADERS([pthread.h], [], [have_pthreads=no])
-fi
+    fi
 
-if test "x${have_pthreads}" = xno; then
-    if test "x${async_exec}" = xyes; then
+    if test "x${have_pthreads}" = xno; then
 	AC_MSG_WARN([
 	-----------------------------------------
 	Unable to find pthreads on this system
 	Building a single-threaded version.
 	-----------------------------------------])
+        async_exec=no
     fi
-    async_exec=no
 fi
 
 if test "x${async_exec}" = xyes; then
     AC_DEFINE([ASYNC_EXEC],[1],[async execution enabled])
 fi
+
+# Checks for libraries.
 
 # Checks for typedefs, structures, and compiler characteristics.
 
