@@ -4,6 +4,7 @@
 AC_PREREQ([2.71])
 AC_INIT([Jupiter],[1.0],[jupiter-bugs@example.org])
 AM_INIT_AUTOMAKE
+AM_SILENT_RULES([yes])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
 
