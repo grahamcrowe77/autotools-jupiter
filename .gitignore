@@ -10,3 +10,12 @@ src/Makefile
 config.h.in
 install-sh
 config.h
+Makefile.in
+aclocal.m4
+compile
+depcomp
+missing
+src/Makefile.in
+src/.deps/
+src/main.o
+stamp-h1
