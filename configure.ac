@@ -11,6 +11,7 @@ AC_PROG_CC([clang gcc cc])
 AC_PROG_INSTALL
 
 # Checks for libraries.
+AC_SEARCH_LIBS([pthread_create],[pthread])
 
 # Checks for header files.
 
