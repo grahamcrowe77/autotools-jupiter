@@ -14,6 +14,7 @@ AC_PROG_INSTALL
 AC_SEARCH_LIBS([pthread_create],[pthread])
 
 # Checks for header files.
+AC_CHECK_HEADERS([stdio.h stdlib.h pthread.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
