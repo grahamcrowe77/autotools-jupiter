@@ -1,3 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4
+
 bin_PROGRAMS = jupiter
 jupiter_SOURCES = main.c
 jupiter_CPPFLAGS = -I$(top_srcdir)/include
