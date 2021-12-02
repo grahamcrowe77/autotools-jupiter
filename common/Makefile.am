@@ -1,5 +1,4 @@
 ACLOCAL_AMFLAGS = -I m4
 
-noinst_LIBRARIES = libjupcommon.a
-libjupcommon_a_SOURCES = jupcommon.h print.c
-libjupcommon_a_CFLAGS = -fPIC
+noinst_LTLIBRARIES = libjupcommon.la
+libjupcommon_la_SOURCES = jupcommon.h print.c

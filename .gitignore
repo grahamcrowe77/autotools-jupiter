@@ -19,8 +19,11 @@ m4/
 
 config.*
 .deps/
+.libs/
 *.o
 *.a
+*.la
+*.lo
 *.sh
 *.log
 *.trs
