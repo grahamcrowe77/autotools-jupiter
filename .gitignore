@@ -3,7 +3,6 @@ src/jupiter
 jupiter-*.tar.gz
 autom4te.cache/
 configure
-config.status
 Makefile
 Makefile.in
 config.h.in
@@ -15,7 +14,9 @@ depcomp
 missing
 stamp-h1
 test-driver
+libtool
 
+config.*
 .deps/
 *.o
 *.a
