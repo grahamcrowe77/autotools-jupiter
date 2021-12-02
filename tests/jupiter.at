@@ -1,0 +1,5 @@
+AT_SETUP([jupiter-execution])
+AT_CHECK_UNQUOTED(["${abs_top_builddir}"/src/jupiter],,
+                  [Hello from ${abs_top_builddir}/src/.libs/jupiter!
+])
+AT_CLEANUP
