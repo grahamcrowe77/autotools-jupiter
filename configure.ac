@@ -16,7 +16,7 @@ AC_PROG_CC([clang gcc cc])
 AC_PROG_INSTALL
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdio.h stdlib.h dlfcn.h])
+AC_CHECK_HEADERS([stdio.h stdlib.h ltdl.h])
 
 # Checks for command line options
 AC_ARG_ENABLE([async-exec],
@@ -51,7 +51,7 @@ fi
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
-AC_SEARCH_LIBS([dlopen],[dl])
+AC_SEARCH_LIBS([lt_dlopen],[ltdl])
 
 AC_CONFIG_FILES([Makefile
 		 common/Makefile

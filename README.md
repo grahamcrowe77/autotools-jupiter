@@ -1,5 +1,10 @@
-To support the dynamic library loading do the following:
+To run without dynamic loading:
+```bash
+src/jupter
+```
+
+To run with dynamic library loading do the following:
 ```bash
 cd src/
-ln -s modules/hithere/.libs/hithere.so module.so
+./jupiter
 ```
