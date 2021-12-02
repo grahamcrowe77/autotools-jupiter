@@ -1,3 +1,3 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = common include libjup src
+SUBDIRS = common include libjup src tests

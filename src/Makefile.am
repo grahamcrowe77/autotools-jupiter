@@ -11,7 +11,7 @@ check_SCRIPTS = greptest.sh
 TESTS = $(check_SCRIPTS)
 
 greptest.sh:
-	echo './jupiter | grep "Hello from .*jupiter!"' > $@
+	echo './jupiter | grep "Hi there from .*jupiter!"' > $@
 	chmod +x $@
 
 CLEANFILES = greptest.sh
