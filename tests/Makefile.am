@@ -1,6 +1,9 @@
+EXTRA_DIST = testsuite.at local.at jupiter.at print.at \
+	     $(TESTSUITE) atconfig package.m4
+
 TESTSUITE = $(srcdir)/testsuite
 TESTSOURCES = $(srcdir)/local.at $(srcdir)/testsuite.at \
-	      $(srcdir)/jupiter.at
+	      $(srcdir)/jupiter.at $(srcdir)/print.at
 AUTOM4TE = $(SHELL) $(top_srcdir)/missing --run autom4te
 AUTOTEST = $(AUTOM4TE) --language=autotest
 
@@ -23,3 +26,5 @@ $(srcdir)/package.m4: $(top_srcdir)/configure.ac
 
 $(TESTSUITE): $(TESTSOURCES) $(srcdir)/package.m4
 	$(AM_V_GEN) $(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at; mv $@.tmp $@
+
+CLEANFILES = atconfig testsuite.log
