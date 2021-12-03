@@ -10,6 +10,9 @@ AUTOTEST = $(AUTOM4TE) --language=autotest
 check-local: atconfig atlocal $(TESTSUITE)
 	$(SHELL) '$(TESTSUITE)' $(TESTSUITEFLAGS)
 
+installcheck-local: atconfig atlocal $(TESTSUITE)
+	$(SHELL) '$(TESTSUITE)' 'AUTOTEST_PATH=$(DESTDIR)$(bindir)' $(TESTSUITEFLAGS)
+
 atconfig: $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status tests/$@
 
@@ -26,5 +29,3 @@ $(srcdir)/package.m4: $(top_srcdir)/configure.ac
 
 $(TESTSUITE): $(TESTSOURCES) $(srcdir)/package.m4
 	$(AM_V_GEN) $(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at; mv $@.tmp $@
-
-CLEANFILES = atconfig testsuite.log
