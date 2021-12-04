@@ -14,7 +14,7 @@ installcheck-local: atconfig atlocal $(TESTSUITE)
 	$(SHELL) '$(TESTSUITE)' 'AUTOTEST_PATH=$(DESTDIR)$(bindir)' $(TESTSUITEFLAGS)
 
 clean-local:
-	test | -f '$(TESTSUITE)' || $(SHELL) '$(TESTSUITE)' --clean
+	test ! -f '$(TESTSUITE)' || $(SHELL) '$(TESTSUITE)' --clean
 	rm -rf atconfig
 
 atconfig: $(top_builddir)/config.status
